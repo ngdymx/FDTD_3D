@@ -26,7 +26,7 @@ if __name__ == '__main__':
     # X = np.arange(25)
     # Y = np.arange(25)
     # X, Y = np.meshgrid(X, Y)
-    figure = plt.figure(figsize=(10, 10), dpi=100)
+    figure = plt.figure(figsize=(20, 20), dpi=100)
 
     for t in range(Steps):
         plt.clf()
