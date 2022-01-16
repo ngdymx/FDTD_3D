@@ -156,43 +156,55 @@ class fdtd_3d_systolic_block:
         self.kdx2 = 2 * self.ep * self.dt / (2 * self.ep * self.ky + self.sigma_y * self.dt) / self.dy
         self.kdx3 = 2 * self.ep * self.dt / (2 * self.ep * self.ky + self.sigma_y * self.dt) / self.dz
         self.kex1 = (2 * self.ep * self.kz - self.sigma_z * self.dt) / (2 * self.ep * self.kz + self.sigma_z * self.dt)
-        self.kex2 = (2 * self.ep * self.kx + self.sigma_x * self.dt) / (2 * self.ep * self.kz + self.sigma_z * self.dt) / self.ep
-        self.kex3 = (2 * self.ep * self.kx - self.sigma_x * self.dt) / (2 * self.ep * self.kz + self.sigma_z * self.dt) / self.ep
+        self.kex2 = (2 * self.ep * self.kx + self.sigma_x * self.dt) / (
+                2 * self.ep * self.kz + self.sigma_z * self.dt) / self.ep
+        self.kex3 = (2 * self.ep * self.kx - self.sigma_x * self.dt) / (
+                2 * self.ep * self.kz + self.sigma_z * self.dt) / self.ep
 
         self.kdy1 = (2 * self.ep * self.kz - self.sigma_z * self.dt) / (2 * self.ep * self.kz + self.sigma_z * self.dt)
         self.kdy2 = 2 * self.ep * self.dt / (2 * self.ep * self.kz + self.sigma_z * self.dt) / self.dz
         self.kdy3 = 2 * self.ep * self.dt / (2 * self.ep * self.kz + self.sigma_z * self.dt) / self.dx
         self.key1 = (2 * self.ep * self.kx - self.sigma_x * self.dt) / (2 * self.ep * self.kx + self.sigma_x * self.dt)
-        self.key2 = (2 * self.ep * self.ky + self.sigma_y * self.dt) / (2 * self.ep * self.kx + self.sigma_x * self.dt) / self.ep
-        self.key3 = (2 * self.ep * self.ky - self.sigma_y * self.dt) / (2 * self.ep * self.kx + self.sigma_x * self.dt) / self.ep
+        self.key2 = (2 * self.ep * self.ky + self.sigma_y * self.dt) / (
+                2 * self.ep * self.kx + self.sigma_x * self.dt) / self.ep
+        self.key3 = (2 * self.ep * self.ky - self.sigma_y * self.dt) / (
+                2 * self.ep * self.kx + self.sigma_x * self.dt) / self.ep
 
         self.kdz1 = (2 * self.ep * self.kx - self.sigma_x * self.dt) / (2 * self.ep * self.kx + self.sigma_x * self.dt)
         self.kdz2 = 2 * self.ep * self.dt / (2 * self.ep * self.kx + self.sigma_x * self.dt) / self.dx
         self.kdz3 = 2 * self.ep * self.dt / (2 * self.ep * self.kx + self.sigma_x * self.dt) / self.dy
         self.kez1 = (2 * self.ep * self.ky - self.sigma_y * self.dt) / (2 * self.ep * self.ky + self.sigma_y * self.dt)
-        self.kez2 = (2 * self.ep * self.kz + self.sigma_z * self.dt) / (2 * self.ep * self.ky + self.sigma_y * self.dt) / self.ep
-        self.kez3 = (2 * self.ep * self.kz - self.sigma_z * self.dt) / (2 * self.ep * self.ky + self.sigma_y * self.dt) / self.ep
+        self.kez2 = (2 * self.ep * self.kz + self.sigma_z * self.dt) / (
+                2 * self.ep * self.ky + self.sigma_y * self.dt) / self.ep
+        self.kez3 = (2 * self.ep * self.kz - self.sigma_z * self.dt) / (
+                2 * self.ep * self.ky + self.sigma_y * self.dt) / self.ep
 
         self.kbx1 = (2 * self.ep * self.ky - self.sigma_y * self.dt) / (2 * self.ep * self.ky + self.sigma_y * self.dt)
         self.kbx2 = 2 * self.ep * self.dt / (2 * self.ep * self.ky + self.sigma_y * self.dt) / self.dy
         self.kbx3 = 2 * self.ep * self.dt / (2 * self.ep * self.ky + self.sigma_y * self.dt) / self.dz
         self.khx1 = (2 * self.ep * self.kz - self.sigma_z * self.dt) / (2 * self.ep * self.kz + self.sigma_z * self.dt)
-        self.khx2 = (2 * self.ep * self.kx + self.sigma_x * self.dt) / (2 * self.ep * self.kz + self.sigma_z * self.dt) / self.mu
-        self.khx3 = (2 * self.ep * self.kx - self.sigma_x * self.dt) / (2 * self.ep * self.kz + self.sigma_z * self.dt) / self.mu
+        self.khx2 = (2 * self.ep * self.kx + self.sigma_x * self.dt) / (
+                2 * self.ep * self.kz + self.sigma_z * self.dt) / self.mu
+        self.khx3 = (2 * self.ep * self.kx - self.sigma_x * self.dt) / (
+                2 * self.ep * self.kz + self.sigma_z * self.dt) / self.mu
 
         self.kby1 = (2 * self.ep * self.kz - self.sigma_z * self.dt) / (2 * self.ep * self.kz + self.sigma_z * self.dt)
         self.kby2 = 2 * self.ep * self.dt / (2 * self.ep * self.kz + self.sigma_z * self.dt) / self.dz
         self.kby3 = 2 * self.ep * self.dt / (2 * self.ep * self.kz + self.sigma_z * self.dt) / self.dx
         self.khy1 = (2 * self.ep * self.kx - self.sigma_x * self.dt) / (2 * self.ep * self.kx + self.sigma_x * self.dt)
-        self.khy2 = (2 * self.ep * self.ky + self.sigma_y * self.dt) / (2 * self.ep * self.kx + self.sigma_x * self.dt) / self.mu
-        self.khy3 = (2 * self.ep * self.ky - self.sigma_y * self.dt) / (2 * self.ep * self.kx + self.sigma_x * self.dt) / self.mu
+        self.khy2 = (2 * self.ep * self.ky + self.sigma_y * self.dt) / (
+                2 * self.ep * self.kx + self.sigma_x * self.dt) / self.mu
+        self.khy3 = (2 * self.ep * self.ky - self.sigma_y * self.dt) / (
+                2 * self.ep * self.kx + self.sigma_x * self.dt) / self.mu
 
         self.kbz1 = (2 * self.ep * self.kx - self.sigma_x * self.dt) / (2 * self.ep * self.kx + self.sigma_x * self.dt)
         self.kbz2 = 2 * self.ep * self.dt / (2 * self.ep * self.kx + self.sigma_x * self.dt) / self.dx
         self.kbz3 = 2 * self.ep * self.dt / (2 * self.ep * self.kx + self.sigma_x * self.dt) / self.dy
         self.khz1 = (2 * self.ep * self.ky - self.sigma_y * self.dt) / (2 * self.ep * self.ky + self.sigma_y * self.dt)
-        self.khz2 = (2 * self.ep * self.kz + self.sigma_z * self.dt) / (2 * self.ep * self.ky + self.sigma_y * self.dt) / self.mu
-        self.khz3 = (2 * self.ep * self.kz - self.sigma_z * self.dt) / (2 * self.ep * self.ky + self.sigma_y * self.dt) / self.mu
+        self.khz2 = (2 * self.ep * self.kz + self.sigma_z * self.dt) / (
+                2 * self.ep * self.ky + self.sigma_y * self.dt) / self.mu
+        self.khz3 = (2 * self.ep * self.kz - self.sigma_z * self.dt) / (
+                2 * self.ep * self.ky + self.sigma_y * self.dt) / self.mu
 
     def apply_src(self, value, stype='E'):
         if stype == 'E':
@@ -617,13 +629,19 @@ class FDTD_3D_space:
                     self.systolic_blocks1[i][j][k].update_Dzy_last()
                     self.systolic_blocks1[i][j][k].update_Dz_last()
 
-    def set_pml(self, x_side, y_side, z_side,  d, R0=1e-16, M=3, ep=8.85e-12):
+    def set_upml(self, x_side, y_side, z_side, d, R0=1e-16, M=3, ep=8.85e-12):
+        kx_max = 1
+        ky_max = 1
+        kz_max = 1
         sigmax_max = -np.log10(R0) * (M + 1) * ep * 3e8 / 2 / d / self.dx
         sigmay_max = -np.log10(R0) * (M + 1) * ep * 3e8 / 2 / d / self.dy
         sigmaz_max = -np.log10(R0) * (M + 1) * ep * 3e8 / 2 / d / self.dz
         Pfront = np.power((np.arange(d) / d), M) * sigmax_max
+        p1 = np.power((np.arange(d) / d), M) * (kx_max - 1) + 1
         Pright = np.power((np.arange(d) / d), M) * sigmay_max
+        p2 = np.power((np.arange(d) / d), M) * (ky_max - 1) + 1
         Ptop = np.power((np.arange(d) / d), M) * sigmaz_max
+        p3 = np.power((np.arange(d) / d), M) * (kz_max - 1) + 1
         if x_side == 'B':
             for i in range(d):
                 for j in range(self.y_nodes):
@@ -631,6 +649,9 @@ class FDTD_3D_space:
                         self.systolic_blocks1[i][j][k].sigma_x = Pfront[d - 1 - i]
                         self.systolic_blocks1[i][j][k].sigma_y = Pfront[d - 1 - i]
                         self.systolic_blocks1[i][j][k].sigma_z = Pfront[d - 1 - i]
+                        self.systolic_blocks1[i][j][k].kx = p1[d - 1 - i]
+                        self.systolic_blocks1[i][j][k].ky = p1[d - 1 - i]
+                        self.systolic_blocks1[i][j][k].kz = p1[d - 1 - i]
         else:
             for i in range(d):
                 for j in range(self.y_nodes):
@@ -638,6 +659,9 @@ class FDTD_3D_space:
                         self.systolic_blocks1[self.x_nodes - d + i][j][k].sigma_x = Pfront[i]
                         self.systolic_blocks1[self.x_nodes - d + i][j][k].sigma_y = Pfront[i]
                         self.systolic_blocks1[self.x_nodes - d + i][j][k].sigma_z = Pfront[i]
+                        self.systolic_blocks1[self.x_nodes - d + i][j][k].kx = p1[i]
+                        self.systolic_blocks1[self.x_nodes - d + i][j][k].ky = p1[i]
+                        self.systolic_blocks1[self.x_nodes - d + i][j][k].kz = p1[i]
 
         if y_side == 'L':
             for j in range(d):
@@ -646,6 +670,9 @@ class FDTD_3D_space:
                         self.systolic_blocks1[i][j][k].sigma_x = Pright[d - 1 - j]
                         self.systolic_blocks1[i][j][k].sigma_y = Pright[d - 1 - j]
                         self.systolic_blocks1[i][j][k].sigma_z = Pright[d - 1 - j]
+                        self.systolic_blocks1[i][j][k].kx = p2[d - 1 - j]
+                        self.systolic_blocks1[i][j][k].ky = p2[d - 1 - j]
+                        self.systolic_blocks1[i][j][k].kz = p2[d - 1 - j]
         else:
             for j in range(d):
                 for i in range(self.x_nodes):
@@ -653,6 +680,9 @@ class FDTD_3D_space:
                         self.systolic_blocks1[i][self.y_nodes - d + j][k].sigma_x = Pright[j]
                         self.systolic_blocks1[i][self.y_nodes - d + j][k].sigma_y = Pright[j]
                         self.systolic_blocks1[i][self.y_nodes - d + j][k].sigma_z = Pright[j]
+                        self.systolic_blocks1[i][self.y_nodes - d + j][k].kx = p2[j]
+                        self.systolic_blocks1[i][self.y_nodes - d + j][k].ky = p2[j]
+                        self.systolic_blocks1[i][self.y_nodes - d + j][k].kz = p2[j]
 
         if z_side == 'B':
             for k in range(d):
@@ -661,6 +691,9 @@ class FDTD_3D_space:
                         self.systolic_blocks1[i][j][k].sigma_x = Ptop[d - 1 - k]
                         self.systolic_blocks1[i][j][k].sigma_y = Ptop[d - 1 - k]
                         self.systolic_blocks1[i][j][k].sigma_z = Ptop[d - 1 - k]
+                        self.systolic_blocks1[i][j][k].kx = p3[d - 1 - k]
+                        self.systolic_blocks1[i][j][k].ky = p3[d - 1 - k]
+                        self.systolic_blocks1[i][j][k].kz = p3[d - 1 - k]
         else:
             for k in range(d):
                 for i in range(self.x_nodes):
@@ -668,6 +701,9 @@ class FDTD_3D_space:
                         self.systolic_blocks1[i][j][self.z_nodes - d + k].sigma_x = Ptop[k]
                         self.systolic_blocks1[i][j][self.z_nodes - d + k].sigma_y = Ptop[k]
                         self.systolic_blocks1[i][j][self.z_nodes - d + k].sigma_z = Ptop[k]
+                        self.systolic_blocks1[i][j][self.z_nodes - d + k].kx = p3[k]
+                        self.systolic_blocks1[i][j][self.z_nodes - d + k].ky = p3[k]
+                        self.systolic_blocks1[i][j][self.z_nodes - d + k].kz = p3[k]
 
         for i in range(self.x_nodes):
             for j in range(self.y_nodes):
